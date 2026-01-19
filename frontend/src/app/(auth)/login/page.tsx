@@ -22,6 +22,22 @@ export default function LoginPage() {
         }, 1000);
     };
 
+    const handleGoogleLogin = () => {
+        // In production, this would redirect to your backend OAuth endpoint
+        // which then redirects to Google's OAuth consent screen
+        // For now, we'll simulate a successful login
+        setIsLoading(true);
+
+        // Simulate Google OAuth flow
+        setTimeout(() => {
+            localStorage.setItem('auth-token', 'google-oauth-token');
+            window.location.href = '/dashboard';
+        }, 1500);
+
+        // Production implementation would be:
+        // window.location.href = '/api/auth/google';
+    };
+
     return (
         <div className="min-h-screen bg-background flex items-center justify-center p-4">
             {/* Brand Header */}
@@ -31,24 +47,24 @@ export default function LoginPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                 </div>
-                <span className="text-lg font-bold text-gray-900 dark:text-white">PromptShield</span>
+                <span className="text-lg font-black text-white">PromptShield</span>
             </div>
 
             {/* Need Help Link */}
             <Link
                 href="/support"
-                className="absolute top-6 right-6 text-sm text-primary hover:text-primary-hover font-medium"
+                className="absolute top-6 right-6 text-sm text-primary hover:text-blue-300 font-black"
             >
                 Need help?
             </Link>
 
             {/* Login Card */}
             <div className="w-full max-w-md">
-                <div className="bg-white dark:bg-dark-card rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-dark-border">
+                <div className="bg-black rounded-2xl shadow-xl p-8 border border-gray-800">
                     {/* Icon */}
                     <div className="flex justify-center mb-6">
-                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                            <svg className="w-9 h-9 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center">
+                            <svg className="w-9 h-9 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
@@ -56,10 +72,10 @@ export default function LoginPage() {
 
                     {/* Welcome Text */}
                     <div className="text-center mb-8">
-                        <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                        <h1 className="text-2xl font-black text-white mb-2">
                             Welcome Back
                         </h1>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-gray-300">
                             Secure your prompts and mask sensitive PII before LLM processing.
                         </p>
                     </div>
@@ -68,7 +84,7 @@ export default function LoginPage() {
                     <form onSubmit={handleLogin} className="space-y-5">
                         {/* Email Input */}
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            <label htmlFor="email" className="block text-sm font-black text-white mb-2">
                                 Work Email
                             </label>
                             <div className="relative">
@@ -80,7 +96,7 @@ export default function LoginPage() {
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="name@company.com"
                                     required
-                                    className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-slate-700 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400"
+                                    className="w-full pl-10 pr-4 py-3 bg-black border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white placeholder-gray-600"
                                 />
                             </div>
                         </div>
@@ -88,10 +104,10 @@ export default function LoginPage() {
                         {/* Password Input */}
                         <div>
                             <div className="flex items-center justify-between mb-2">
-                                <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                <label htmlFor="password" className="block text-sm font-black text-white">
                                     Password
                                 </label>
-                                <Link href="/forgot-password" className="text-sm text-primary hover:text-primary-hover font-medium">
+                                <Link href="/forgot-password" className="text-sm text-primary hover:text-blue-300 font-black">
                                     Forgot Password?
                                 </Link>
                             </div>
@@ -104,7 +120,7 @@ export default function LoginPage() {
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="Enter your password"
                                     required
-                                    className="w-full pl-10 pr-12 py-3 bg-gray-50 dark:bg-slate-700 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400"
+                                    className="w-full pl-10 pr-12 py-3 bg-black border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white placeholder-gray-600"
                                 />
                                 <button
                                     type="button"
@@ -150,29 +166,32 @@ export default function LoginPage() {
                     {/* Divider */}
                     <div className="flex items-center my-6">
                         <div className="flex-1 h-px bg-gray-200 dark:bg-dark-border"></div>
-                        <span className="px-4 text-sm text-gray-500 dark:text-gray-400">OR CONTINUE WITH</span>
+                        <span className="px-4 text-sm text-gray-400">OR CONTINUE WITH</span>
                         <div className="flex-1 h-px bg-gray-200 dark:bg-dark-border"></div>
                     </div>
 
-                    {/* SSO Button */}
-                    <Button variant="secondary" fullWidth>
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    {/* Google Sign In Button */}
+                    <Button variant="secondary" fullWidth onClick={handleGoogleLogin}>
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                         </svg>
-                        Enterprise SSO (SAML/OIDC)
+                        Continue with Google
                     </Button>
 
                     {/* Sign Up Link */}
-                    <p className="text-center mt-6 text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-center mt-6 text-sm text-gray-300">
                         Don't have an account?{' '}
-                        <Link href="/signup" className="text-primary hover:text-primary-hover font-semibold">
+                        <Link href="/signup" className="text-primary hover:text-blue-300 font-black">
                             Sign up for free
                         </Link>
                     </p>
                 </div>
 
                 {/* Security Badges */}
-                <div className="mt-6 flex items-center justify-center gap-6 text-xs text-gray-500 dark:text-gray-400">
+                <div className="mt-6 flex items-center justify-center gap-6 text-xs text-gray-400">
                     <div className="flex items-center gap-1.5">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -194,10 +213,10 @@ export default function LoginPage() {
                 </div>
 
                 {/* Footer Links */}
-                <div className="mt-8 flex items-center justify-center gap-6 text-xs text-gray-500 dark:text-gray-400">
-                    <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
-                    <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
-                    <Link href="/security" className="hover:text-primary">Security Overview</Link>
+                <div className="mt-8 flex items-center justify-center gap-6 text-xs text-gray-400">
+                    <Link href="/privacy" className="hover:text-blue-400">Privacy Policy</Link>
+                    <Link href="/terms" className="hover:text-blue-400">Terms of Service</Link>
+                    <Link href="/security" className="hover:text-blue-400">Security Overview</Link>
                 </div>
             </div>
         </div>

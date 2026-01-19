@@ -35,14 +35,14 @@ export default function UserMenu() {
             {/* User Avatar Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-dark-border rounded-lg hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors"
+                className="flex items-center gap-2 px-3 py-2 bg-zinc-900 border border-gray-800 rounded-lg hover:bg-zinc-800 transition-colors"
             >
-                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm">V</span>
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">V</span>
                 </div>
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Vamsee</span>
+                <span className="text-sm font-bold text-white">Vamsee</span>
                 <svg
-                    className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -53,12 +53,12 @@ export default function UserMenu() {
 
             {/* Dropdown Menu */}
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-lg shadow-lg overflow-hidden z-50">
+                <div className="absolute right-0 mt-2 w-56 bg-black border border-gray-800 rounded-lg shadow-xl overflow-hidden z-50">
                     {/* User Info */}
-                    <div className="px-4 py-3 border-b border-gray-200 dark:border-dark-border">
-                        <p className="text-sm font-semibold text-gray-900 dark:text-white">Vamsee</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">vamsee@promptshield.ai</p>
-                        <span className="inline-block mt-1 px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-medium rounded">
+                    <div className="px-4 py-3 border-b border-gray-800">
+                        <p className="text-sm font-black text-white">Vamsee</p>
+                        <p className="text-xs font-bold text-gray-400">vamsee@promptshield.ai</p>
+                        <span className="inline-block mt-1 px-2 py-0.5 bg-blue-600 text-white text-xs font-bold rounded">
                             Administrator
                         </span>
                     </div>
@@ -67,7 +67,7 @@ export default function UserMenu() {
                     <div className="py-1">
                         <Link
                             href="/profile"
-                            className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700"
+                            className="flex items-center gap-3 px-4 py-2 text-sm font-bold text-white hover:bg-zinc-900"
                             onClick={() => setIsOpen(false)}
                         >
                             <UserCircleIcon className="w-5 h-5" />
@@ -75,7 +75,7 @@ export default function UserMenu() {
                         </Link>
                         <Link
                             href="/settings"
-                            className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700"
+                            className="flex items-center gap-3 px-4 py-2 text-sm font-bold text-white hover:bg-zinc-900"
                             onClick={() => setIsOpen(false)}
                         >
                             <Cog6ToothIcon className="w-5 h-5" />
@@ -84,10 +84,10 @@ export default function UserMenu() {
                     </div>
 
                     {/* Logout */}
-                    <div className="border-t border-gray-200 dark:border-dark-border py-1">
+                    <div className="border-t border-gray-800 py-1">
                         <button
                             onClick={handleLogout}
-                            className="flex items-center gap-3 w-full px-4 py-2 text-sm text-danger hover:bg-gray-100 dark:hover:bg-slate-700"
+                            className="flex items-center gap-3 w-full px-4 py-2 text-sm font-bold text-red-400 hover:bg-zinc-900"
                         >
                             <ArrowRightOnRectangleIcon className="w-5 h-5" />
                             Sign out

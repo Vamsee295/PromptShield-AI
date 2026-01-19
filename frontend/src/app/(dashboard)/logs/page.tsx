@@ -13,8 +13,8 @@ export default function LogsPage() {
             {/* Page Header */}
             <div className="mb-8 flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Scan Logs</h1>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <h1 className="text-3xl font-bold text-white dark:text-white mb-2">Scan Logs</h1>
+                    <p className="text-gray-300 dark:text-gray-400">
                         Audit trail of all prompt scans and security findings
                     </p>
                 </div>
@@ -46,7 +46,7 @@ export default function LogsPage() {
             </div>
 
             {/* Filter Bar */}
-            <div className="bg-white dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl p-4 mb-6">
+            <div className="bg-black dark:bg-dark-card border border-gray-800 dark:border-dark-border rounded-xl p-4 mb-6">
                 <div className="flex items-center gap-3 mb-3">
                     <Badge variant="high" size="sm">
                         <span className="flex items-center gap-1">
@@ -60,22 +60,22 @@ export default function LogsPage() {
                             <button className="ml-1 hover:text-red-900">×</button>
                         </span>
                     </Badge>
-                    <button className="text-sm text-gray-500 hover:text-primary">Clear all filters</button>
+                    <button className="text-sm text-gray-400 hover:text-primary">Clear all filters</button>
                 </div>
 
                 <div className="flex items-center gap-3">
-                    <select className="px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-300 dark:border-dark-border rounded-lg text-sm">
+                    <select className="px-3 py-2 bg-black dark:bg-slate-700 border border-gray-800 dark:border-dark-border rounded-lg text-sm">
                         <option>Last 24h</option>
                         <option>Last 7 days</option>
                         <option>Last 30 days</option>
                     </select>
-                    <select className="px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-300 dark:border-dark-border rounded-lg text-sm">
+                    <select className="px-3 py-2 bg-black dark:bg-slate-700 border border-gray-800 dark:border-dark-border rounded-lg text-sm">
                         <option>Risk: All</option>
                         <option>Critical</option>
                         <option>High</option>
                         <option>Medium</option>
                     </select>
-                    <select className="px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-300 dark:border-dark-border rounded-lg text-sm">
+                    <select className="px-3 py-2 bg-black dark:bg-slate-700 border border-gray-800 dark:border-dark-border rounded-lg text-sm">
                         <option>Source: API/Web</option>
                         <option>API</option>
                         <option>Web</option>
@@ -84,34 +84,34 @@ export default function LogsPage() {
             </div>
 
             {/* Audit Logs Table */}
-            <div className="bg-white dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl overflow-hidden shadow-card">
+            <div className="bg-black dark:bg-dark-card border border-gray-800 dark:border-dark-border rounded-xl overflow-hidden shadow-card">
                 <div className="overflow-x-auto">
                     <table className="w-full">
-                        <thead className="bg-gray-50 dark:bg-slate-800 border-b border-gray-200 dark:border-dark-border">
+                        <thead className="bg-black dark:bg-slate-800 border-b border-gray-800 dark:border-dark-border">
                             <tr>
-                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 dark:text-gray-400 uppercase tracking-wider">
                                     Timestamp
                                 </th>
-                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 dark:text-gray-400 uppercase tracking-wider">
                                     Source
                                 </th>
-                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 dark:text-gray-400 uppercase tracking-wider">
                                     Detected Items
                                 </th>
-                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 dark:text-gray-400 uppercase tracking-wider">
                                     Risk Level
                                 </th>
-                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                                <th className="px-6 py-3 text-left text-xs font-semibold text-gray-300 dark:text-gray-400 uppercase tracking-wider">
                                     Action
                                 </th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200 dark:divide-dark-border">
                             {/* Row 1 */}
-                            <tr className="hover:bg-gray-50 dark:hover:bg-slate-700/50">
+                            <tr className="hover:bg-black dark:hover:bg-slate-700/50">
                                 <td className="px-6 py-4">
-                                    <div className="text-sm font-medium text-gray-900 dark:text-white">Oct 27, 14:22:01</div>
-                                    <div className="text-xs text-gray-500">ID: scan_2c9k3zd</div>
+                                    <div className="text-sm font-medium text-white dark:text-white">Oct 27, 14:22:01</div>
+                                    <div className="text-xs text-gray-400">ID: scan_2c9k3zd</div>
                                 </td>
                                 <td className="px-6 py-4">
                                     <Badge variant="info" size="sm">API</Badge>
@@ -136,10 +136,10 @@ export default function LogsPage() {
                             </tr>
 
                             {/* Row 2 */}
-                            <tr className="hover:bg-gray-50 dark:hover:bg-slate-700/50">
+                            <tr className="hover:bg-black dark:hover:bg-slate-700/50">
                                 <td className="px-6 py-4">
-                                    <div className="text-sm font-medium text-gray-900 dark:text-white">Oct 27, 14:15:30</div>
-                                    <div className="text-xs text-gray-500">ID: scan_1c9h23p</div>
+                                    <div className="text-sm font-medium text-white dark:text-white">Oct 27, 14:15:30</div>
+                                    <div className="text-xs text-gray-400">ID: scan_1c9h23p</div>
                                 </td>
                                 <td className="px-6 py-4">
                                     <Badge variant="success" size="sm">WEB</Badge>
@@ -163,16 +163,16 @@ export default function LogsPage() {
                             </tr>
 
                             {/* Row 3 */}
-                            <tr className="hover:bg-gray-50 dark:hover:bg-slate-700/50">
+                            <tr className="hover:bg-black dark:hover:bg-slate-700/50">
                                 <td className="px-6 py-4">
-                                    <div className="text-sm font-medium text-gray-900 dark:text-white">Oct 27, 14:10:12</div>
-                                    <div className="text-xs text-gray-500">ID: scan_1q9832x</div>
+                                    <div className="text-sm font-medium text-white dark:text-white">Oct 27, 14:10:12</div>
+                                    <div className="text-xs text-gray-400">ID: scan_1q9832x</div>
                                 </td>
                                 <td className="px-6 py-4">
                                     <Badge variant="info" size="sm">API</Badge>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <span className="text-sm text-gray-500 italic">No threats detected</span>
+                                    <span className="text-sm text-gray-400 italic">No threats detected</span>
                                 </td>
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-2">
@@ -191,20 +191,20 @@ export default function LogsPage() {
                 </div>
 
                 {/* Pagination */}
-                <div className="px-6 py-4 bg-gray-50 dark:bg-slate-800 border-t border-gray-200 dark:border-dark-border flex items-center justify-between">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                <div className="px-6 py-4 bg-black dark:bg-slate-800 border-t border-gray-800 dark:border-dark-border flex items-center justify-between">
+                    <span className="text-sm text-gray-300 dark:text-gray-400">
                         Showing 1-50 of 1,240 logs
                     </span>
                     <div className="flex items-center gap-2">
-                        <button className="px-3 py-1 text-sm border border-gray-300 dark:border-dark-border rounded hover:bg-gray-100 dark:hover:bg-slate-700">
+                        <button className="px-3 py-1 text-sm border border-gray-800 dark:border-dark-border rounded hover:bg-zinc-900 dark:hover:bg-slate-700">
                             Previous
                         </button>
                         <button className="px-3 py-1 text-sm bg-primary text-white rounded">1</button>
-                        <button className="px-3 py-1 text-sm border border-gray-300 dark:border-dark-border rounded hover:bg-gray-100 dark:hover:bg-slate-700">2</button>
-                        <button className="px-3 py-1 text-sm border border-gray-300 dark:border-dark-border rounded hover:bg-gray-100 dark:hover:bg-slate-700">3</button>
+                        <button className="px-3 py-1 text-sm border border-gray-800 dark:border-dark-border rounded hover:bg-zinc-900 dark:hover:bg-slate-700">2</button>
+                        <button className="px-3 py-1 text-sm border border-gray-800 dark:border-dark-border rounded hover:bg-zinc-900 dark:hover:bg-slate-700">3</button>
                         <span className="px-2">...</span>
-                        <button className="px-3 py-1 text-sm border border-gray-300 dark:border-dark-border rounded hover:bg-gray-100 dark:hover:bg-slate-700">25</button>
-                        <button className="px-3 py-1 text-sm border border-gray-300 dark:border-dark-border rounded hover:bg-gray-100 dark:hover:bg-slate-700">
+                        <button className="px-3 py-1 text-sm border border-gray-800 dark:border-dark-border rounded hover:bg-zinc-900 dark:hover:bg-slate-700">25</button>
+                        <button className="px-3 py-1 text-sm border border-gray-800 dark:border-dark-border rounded hover:bg-zinc-900 dark:hover:bg-slate-700">
                             Next
                         </button>
                     </div>

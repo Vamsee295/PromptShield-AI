@@ -23,7 +23,7 @@ export default function Badge({ children, variant, size = 'md' }: BadgeProps) {
     const sizeClasses = size === 'sm' ? 'px-2 py-0.5 text-xs' : 'px-3 py-1 text-sm';
 
     return (
-        <span className={`inline-flex items-center font-semibold rounded-full border ${sizeClasses} ${variantStyles[variant]}`}>
+        <span className={`inline-flex items-center font-bold rounded-full border ${sizeClasses} ${variantStyles[variant]}`}>
             {children}
         </span>
     );

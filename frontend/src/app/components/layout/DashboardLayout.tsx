@@ -1,6 +1,5 @@
 'use client';
 
-import { ThemeProvider } from 'next-themes';
 import Sidebar from './Sidebar';
 import TopNav from './TopNav';
 
@@ -14,22 +13,20 @@ export default function DashboardLayout({
     children: React.ReactNode;
 }) {
     return (
-        <ThemeProvider attribute="data-theme" defaultTheme="light">
-            <div className="flex h-screen bg-background">
-                {/* Sidebar */}
-                <Sidebar />
+        <div className="flex h-screen bg-black">
+            {/* Sidebar */}
+            <Sidebar />
 
-                {/* Main Content Area */}
-                <div className="flex-1 flex flex-col overflow-hidden">
-                    {/* Top Navigation */}
-                    <TopNav />
+            {/* Main Content Area */}
+            <div className="flex-1 flex flex-col overflow-hidden">
+                {/* Top Navigation */}
+                <TopNav />
 
-                    {/* Page Content */}
-                    <main className="flex-1 overflow-y-auto p-6">
-                        {children}
-                    </main>
-                </div>
+                {/* Page Content */}
+                <main className="flex-1 overflow-y-auto p-6 bg-black">
+                    {children}
+                </main>
             </div>
-        </ThemeProvider>
+        </div>
     );
 }

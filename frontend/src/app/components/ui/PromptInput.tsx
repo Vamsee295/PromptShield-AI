@@ -14,10 +14,10 @@ export default function PromptInput({ value, onChange, onScan, isLoading, disabl
         <div className="space-y-3">
             {/* Label and hint */}
             <div>
-                <label htmlFor="prompt-input" className="block text-sm font-semibold text-gray-700 mb-1">
+                <label htmlFor="prompt-input" className="block text-sm font-black text-white mb-1">
                     Input Prompt
                 </label>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-400 font-bold">
                     Sensitive data is automatically detected and masked
                 </p>
             </div>
@@ -30,12 +30,12 @@ export default function PromptInput({ value, onChange, onScan, isLoading, disabl
                     onChange={(e) => onChange(e.target.value)}
                     disabled={disabled || isLoading}
                     placeholder="Describe your issue. Avoid pasting secrets — PromptShield will automatically detect and mask them."
-                    className="w-full h-80 p-4 text-gray-900 bg-white border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
+                    className="w-full h-80 p-4 text-white bg-black border border-gray-800 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-900 disabled:text-gray-500 font-bold placeholder-gray-600"
                     maxLength={maxChars}
                 />
 
                 {/* Character counter */}
-                <div className="absolute bottom-3 right-3 text-xs text-gray-400">
+                <div className="absolute bottom-3 right-3 text-xs text-gray-500 font-bold">
                     {charCount} chars
                 </div>
             </div>
@@ -45,7 +45,7 @@ export default function PromptInput({ value, onChange, onScan, isLoading, disabl
                 <button
                     onClick={onScan}
                     disabled={isLoading || !value.trim() || disabled}
-                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed transition-colors"
                 >
                     {isLoading ? (
                         <>
@@ -65,7 +65,7 @@ export default function PromptInput({ value, onChange, onScan, isLoading, disabl
                     )}
                 </button>
 
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="flex items-center gap-2 text-sm text-gray-400 font-bold">
                     <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>

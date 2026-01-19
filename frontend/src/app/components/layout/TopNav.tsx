@@ -1,16 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { MagnifyingGlassIcon, BellIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
-import { useTheme } from 'next-themes';
+import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/outline';
 import UserMenu from './UserMenu';
 
 export default function TopNav() {
     const [searchQuery, setSearchQuery] = useState('');
-    const { theme, setTheme } = useTheme();
 
     return (
-        <header className="h-16 bg-white dark:bg-dark-card border-b border-gray-200 dark:border-dark-border flex items-center justify-between px-6">
+        <header className="h-16 bg-black border-b border-gray-800 flex items-center justify-between px-6">
             {/* Search Bar */}
             <div className="flex-1 max-w-xl">
                 <div className="relative">
@@ -20,30 +18,17 @@ export default function TopNav() {
                         placeholder="Search activity..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-dark-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+                        className="w-full pl-10 pr-4 py-2 bg-zinc-900 border border-gray-800 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 font-bold"
                     />
                 </div>
             </div>
 
             {/* Right Actions */}
             <div className="flex items-center gap-4">
-                {/* Theme Toggle */}
-                <button
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
-                    aria-label="Toggle theme"
-                >
-                    {theme === 'dark' ? (
-                        <SunIcon className="w-5 h-5" />
-                    ) : (
-                        <MoonIcon className="w-5 h-5" />
-                    )}
-                </button>
-
                 {/* Notifications */}
-                <button className="relative p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                <button className="relative p-2 text-white hover:bg-zinc-900 rounded-lg transition-colors">
                     <BellIcon className="w-5 h-5" />
-                    <span className="absolute top-1 right-1 w-2 h-2 bg-danger rounded-full"></span>
+                    <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                 </button>
 
                 {/* User Menu */}

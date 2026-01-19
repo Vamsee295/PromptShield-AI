@@ -19,12 +19,12 @@ export default function MaskedPreview({ maskedPrompt, onCopy }: MaskedPreviewPro
     return (
         <div className="mt-4">
             <div className="flex items-center justify-between mb-2">
-                <h4 className="text-sm font-medium text-gray-600 uppercase tracking-wide">
+                <h4 className="text-sm font-black text-white uppercase tracking-wide">
                     Masked Preview
                 </h4>
                 <button
                     onClick={handleCopy}
-                    className="flex items-center gap-2 px-3 py-1 text-sm text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+                    className="flex items-center gap-2 px-3 py-1 text-sm text-blue-400 hover:bg-zinc-900 rounded-md transition-colors font-bold"
                 >
                     {copied ? (
                         <>
@@ -45,12 +45,12 @@ export default function MaskedPreview({ maskedPrompt, onCopy }: MaskedPreviewPro
             </div>
 
             {/* Code-style masked preview */}
-            <div className="relative bg-gray-900 rounded-lg overflow-hidden">
-                <div className="p-4 font-mono text-sm text-gray-100 overflow-x-auto">
+            <div className="relative bg-black border border-gray-800 rounded-lg overflow-hidden">
+                <div className="p-4 font-mono text-sm text-white overflow-x-auto">
                     <pre className="whitespace-pre-wrap break-words">
-                        <code className="text-blue-300">// Sanitized Output</code>
+                        <code className="text-blue-400 font-bold">// Sanitized Output</code>
                         {'\n'}
-                        <code>{maskedPrompt}</code>
+                        <code className="font-bold">{maskedPrompt}</code>
                     </pre>
                 </div>
             </div>
